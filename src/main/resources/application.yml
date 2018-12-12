@@ -1,0 +1,62 @@
+spring:
+    datasource:
+        name: test
+#        url: jdbc:mysql://192.168.0.114:3306/sell?useUnicode=true&characterEncoding=utf-8
+#        username: root
+#        password: 123456
+        url: jdbc:mysql://localhost:3306/sell?useUnicode=true&characterEncoding=utf-8
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+    jackson:
+    #去掉返回值为空的属性
+      default-property-inclusion: non_null
+    redis:
+      host: 192.168.43.71
+      port: 6379
+      password:
+server:
+  servlet:
+    context-path: /
+  port: 9998
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+#  path:
+#  file: /var/log/tomcat/
+#  level:
+logging:
+  level:
+    com.imooc.sell.dao.mapper: trace
+wechat:
+  mpAppId: wx4ca22860376cc217
+  mpAppSecret: 998c5fec6eede5c790e68922f7b75fd3
+  openAppId:
+  openAppSecret:
+  mchId:
+  mchKey:
+  keyPath: /var/weixin_cert/h5.p12
+  notifyUrl: http://jhn.natapp1.cc
+  templateId:
+    orderStatus: xxxxxxxxxxxxxxxxxxxxxxxx
+projectUrl:
+  wechatMpAuthorize: http://jhn.natapp1.cc
+  wechatOpenAuthorize: http://jhn.natapp1.cc
+  sell: http://jhn.natapp1.cc
